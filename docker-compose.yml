@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  openvpn:
+    build: .
+    volumes:
+      - /dev/net/tun:/dev/net/tun
+      - ./client:/etc/openvpn/client
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
